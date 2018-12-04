@@ -9,10 +9,14 @@ import { GenerateService } from '../generate/generate.service';
 export class ResultsComponent implements OnInit {
 
   path;
+  message = 'Loading....';
 
   constructor(private generateService: GenerateService) {
-    // this.path = this.generateService.imagePath;
-    this.path = './assets/result.png';
+    this.path = '';
+    setTimeout(() => {
+      this.path = './assets/result.png';
+      this.message = '';
+    }, 3000);    
   }
 
   ngOnInit() {

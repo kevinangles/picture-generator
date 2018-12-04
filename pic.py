@@ -35,6 +35,7 @@ elif fontSize == "Large":
 
 fontSize = int(fontSize)
 
+count = 0
 image = Image.open('/Users/kevin/Documents/' + filename)
 myFont = ImageFont.truetype(font, fontSize) #user
 
