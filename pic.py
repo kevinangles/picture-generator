@@ -1,6 +1,6 @@
 
 from PIL import Image, ImageDraw, ImageFont
-import CharImg, ImgPlacement, sys, os
+import CharImg, ImgPlacement, sys
 
 # request variables
 filename = sys.argv[1] # string i.e. "myimage.jpg"
