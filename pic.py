@@ -1,13 +1,13 @@
 
 from PIL import Image, ImageDraw, ImageFont
-import CharImg, ImgPlacement, sys
+import CharImg, ImgPlacement, sys, os
 
 # request variables
 filename = sys.argv[1] # string i.e. "myimage.jpg"
-imageStyle = sys.argv[2] # string i.e. "2"
+imageStyle = sys.argv[2] # string i.e. "Style 0"
 message = sys.argv[3] # string i.e. "DRMONIQUEROSS"
 font = sys.argv[4] # string i.e. "FreeMonoBold.ttf"
-fontSize = sys.argv[5] # string i.e. "45"
+fontSize = sys.argv[5] # string i.e. "Small"
 
 # Convert image style string into integer value
 if imageStyle == "Style 0":
@@ -35,17 +35,13 @@ elif fontSize == "Large":
 
 fontSize = int(fontSize)
 
-#Make spaces transparent
-#Fix border: a) test letter overflow (First letter MUST BE whole)
-#            b) If disgusting center letters
-#bad words
-image = Image.open(filename)
+image = Image.open('/Users/kevin/Documents/' + filename)
 myFont = ImageFont.truetype(font, fontSize) #user
 
 (charWidth, charHeight), charImgs = CharImg.createCharacterImgs(message, myFont)
 charImgs = CharImg.styleCharImgs(charImgs, imageStyle)
 final = ImgPlacement.charOnImg(charImgs, image)
-final.save('result.png')
+final.save('/Users/kevin/picturegenerator/picturemethis/src/assets/result.png')
 
 # returns the final image name
-print('result.png')
+print('./assets/result.png')
